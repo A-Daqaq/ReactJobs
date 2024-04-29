@@ -1,0 +1,42 @@
+import React from "react";
+
+const App = () => {
+  const name = "Abdulwahab"; // adding dynamic variable\
+  const x = 10;
+  const y = 14;
+  const names = ["Ammer", "Bashar", "Mohammed", "Sara"];
+  const loggedIn = false;
+  const styles = {
+    color: "red",
+    fontSize: "55px",
+  };
+  // we can return only one element at a time
+  /*if (loggedIn) {
+    return <h1>Hello member</h1>; // we can use if statement here
+  }*/
+  return (
+    // adding multi-stuff into one element and return it, we can use <> --> fragment instead of div
+    <>
+      <div className="text-5xl">App</div>
+      <p style={styles}> Hello {name}</p>
+      <p>
+        The sum of {x} and {y} is {x + y} is my age xD
+      </p>
+
+      <ul>
+        {names.map(
+          (
+            name,
+            index // creating a list of names by using arrow function
+          ) => (
+            <li key={index}>{name}</li> // whatever inside the list it should have unique key prop, we used the index as the key instead of ID since we don't have an ID inside the array
+          )
+        )}
+      </ul>
+      {loggedIn ? <h1>Hello Member</h1> : <h1> Hello Guest</h1>}
+      {loggedIn & <h1>Hello Member</h1>}
+    </> // if statement if loggedIn it would display hello member else hello Guest
+  );
+};
+
+export default App;
